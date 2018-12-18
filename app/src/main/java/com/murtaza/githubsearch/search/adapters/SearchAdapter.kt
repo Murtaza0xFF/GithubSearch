@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.murtaza.githubsearch.PicassoHelper
+import com.murtaza.githubsearch.common.PicassoHelper
 import com.murtaza.githubsearch.R
-import com.murtaza.githubsearch.SearchDiffCallback
+import com.murtaza.githubsearch.search.SearchDiffCallback
 import com.murtaza.githubsearch.search.data.SearchItem
 import com.murtaza.githubsearch.user.ui.UserActivity
 import kotlinx.android.synthetic.main.row.view.*

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
 import androidx.lifecycle.OnLifecycleEvent
-import com.murtaza.githubsearch.DataWrapper
+import com.murtaza.githubsearch.common.DataWrapper
 import com.murtaza.githubsearch.GithubSearch
 import com.murtaza.githubsearch.api.GithubApiInterface
 import com.murtaza.githubsearch.search.data.SearchResults
@@ -45,7 +45,8 @@ class SearchViewModel : androidx.lifecycle.ViewModel(), LifecycleObserver {
                 mutableLiveData.value = DataWrapper(searchResults, null)
             }, { t: Throwable? ->
                 run {
-                    mutableLiveData.value = DataWrapper(SearchResults(mutableListOf()), t!!.message)
+                    mutableLiveData.value =
+                            DataWrapper(SearchResults(mutableListOf()), t!!.message)
                 }
             })
         compositeDisposable.add(disposable)

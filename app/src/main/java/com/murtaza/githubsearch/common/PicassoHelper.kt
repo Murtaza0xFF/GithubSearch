@@ -1,4 +1,4 @@
-package com.murtaza.githubsearch
+package com.murtaza.githubsearch.common
 
 import android.widget.ImageView
 import com.squareup.picasso.Callback

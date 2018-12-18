@@ -1,4 +1,4 @@
-package com.murtaza.githubsearch
+package com.murtaza.githubsearch.search
 
 import androidx.recyclerview.widget.DiffUtil
 import com.murtaza.githubsearch.search.data.SearchItem

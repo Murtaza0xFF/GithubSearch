@@ -4,7 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
-import com.murtaza.githubsearch.DataWrapper
+import com.murtaza.githubsearch.common.DataWrapper
 import com.murtaza.githubsearch.GithubSearch
 import com.murtaza.githubsearch.api.GithubApiInterface
 import com.murtaza.githubsearch.user.data.User

@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.murtaza.githubsearch.PicassoHelper
+import com.murtaza.githubsearch.common.PicassoHelper
 import com.murtaza.githubsearch.R
 import com.murtaza.githubsearch.user.data.User
 import kotlinx.android.synthetic.main.activity_user.*
@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.activity_user.*
 
 class UserActivity: AppCompatActivity() {
 
-    private val picassoHelper: PicassoHelper = PicassoHelper()
+    private val picassoHelper: PicassoHelper =
+        PicassoHelper()
     private lateinit var userViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

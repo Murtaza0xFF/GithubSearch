@@ -1,4 +1,4 @@
-package com.murtaza.githubsearch
+package com.murtaza.githubsearch.common
 
 data class DataWrapper<T>(
     val data: T? = null,
