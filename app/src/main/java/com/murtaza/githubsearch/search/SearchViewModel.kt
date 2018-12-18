@@ -1,13 +1,13 @@
 package com.murtaza.githubsearch.search
 
+import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Lifecycle.Event.ON_DESTROY
 import androidx.lifecycle.OnLifecycleEvent
-import com.murtaza.githubsearch.common.DataWrapper
 import com.murtaza.githubsearch.GithubSearch
-import com.murtaza.githubsearch.api.GithubApiInterface
+import com.murtaza.githubsearch.common.DataWrapper
+import com.murtaza.githubsearch.search.data.SearchApiInterface
 import com.murtaza.githubsearch.search.data.SearchResults
 import com.murtaza.githubsearch.search.di.SearchModule
 import io.reactivex.Observable
@@ -21,7 +21,7 @@ import javax.inject.Inject
 class SearchViewModel : androidx.lifecycle.ViewModel(), LifecycleObserver {
 
     @Inject
-    lateinit var githubApiInterface: GithubApiInterface
+    lateinit var searchApiInterface: SearchApiInterface
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -37,7 +37,7 @@ class SearchViewModel : androidx.lifecycle.ViewModel(), LifecycleObserver {
 
     fun getSearchResults(it: String): LiveData<DataWrapper<SearchResults>> {
         val mutableLiveData = MutableLiveData<DataWrapper<SearchResults>>()
-        val disposable = githubApiInterface
+        val disposable = searchApiInterface
             .searchUsers(it, "followers", "desc")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -62,6 +62,7 @@ class SearchViewModel : androidx.lifecycle.ViewModel(), LifecycleObserver {
         unsubscribeViewModel()
         super.onCleared()
     }
+
     private fun initializeDagger() = GithubSearch.applicationComponent.plus(SearchModule()).inject(this)
 
 }

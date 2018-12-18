@@ -11,7 +11,7 @@ import com.murtaza.githubsearch.common.PicassoHelper
 import com.murtaza.githubsearch.R
 import com.murtaza.githubsearch.search.SearchDiffCallback
 import com.murtaza.githubsearch.search.data.SearchItem
-import com.murtaza.githubsearch.user.ui.UserActivity
+import com.murtaza.githubsearch.user.UserActivity
 import kotlinx.android.synthetic.main.row.view.*
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {

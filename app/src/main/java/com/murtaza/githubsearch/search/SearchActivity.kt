@@ -111,17 +111,17 @@ class SearchActivity : AppCompatActivity() {
         recycler_view.visibility = visibility
     }
 
-    fun setErrorMessage(message: String, visibility: Int) {
+    private fun setErrorMessage(message: String, visibility: Int) {
         this.error.visibility = visibility
         this.error.text = message
     }
 
-    fun stopAnimation() {
+    private fun stopAnimation() {
         animation_view.cancelAnimation()
         animation_view.visibility = View.GONE
     }
 
-    fun setPlaceHolderVisibility(visibility: Int) {
+    private fun setPlaceHolderVisibility(visibility: Int) {
         placeholder.visibility = visibility
     }
 

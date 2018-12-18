@@ -2,7 +2,6 @@ package com.murtaza.githubsearch
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.murtaza.githubsearch.api.GithubApiInterface
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -12,7 +11,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -50,15 +48,13 @@ class ApplicationModule(private val githubSearch: GithubSearch) {
 
     @Provides
     @Singleton
-    fun provideRetrofitService(okHttpClient: OkHttpClient): GithubApiInterface {
-
-        val retrofit: Retrofit = Retrofit.Builder()
+    fun provideRetrofitClient(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-        return retrofit.create(GithubApiInterface::class.java)
     }
 
     @Provides

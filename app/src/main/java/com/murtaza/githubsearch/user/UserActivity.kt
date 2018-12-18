@@ -1,4 +1,4 @@
-package com.murtaza.githubsearch.user.ui
+package com.murtaza.githubsearch.user
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -11,8 +11,7 @@ import com.murtaza.githubsearch.R
 import com.murtaza.githubsearch.user.data.User
 import kotlinx.android.synthetic.main.activity_user.*
 
-
-class UserActivity: AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
     private val picassoHelper: PicassoHelper =
         PicassoHelper()
@@ -121,12 +120,8 @@ class UserActivity: AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            finish() // close this activity and return to preview activity (if there is any)
+            finish()
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

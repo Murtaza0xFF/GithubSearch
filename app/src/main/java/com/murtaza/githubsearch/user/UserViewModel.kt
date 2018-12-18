@@ -1,13 +1,13 @@
-package com.murtaza.githubsearch.user.ui
+package com.murtaza.githubsearch.user
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ViewModel
-import com.murtaza.githubsearch.common.DataWrapper
 import com.murtaza.githubsearch.GithubSearch
-import com.murtaza.githubsearch.api.GithubApiInterface
+import com.murtaza.githubsearch.common.DataWrapper
 import com.murtaza.githubsearch.user.data.User
+import com.murtaza.githubsearch.user.data.UserApiInterface
 import com.murtaza.githubsearch.user.di.UserModule
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 class UserViewModel : ViewModel() {
     @Inject
-    lateinit var githubApiInterface: GithubApiInterface
+    lateinit var userApiInterface: UserApiInterface
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -25,7 +25,7 @@ class UserViewModel : ViewModel() {
 
     fun getUser(username: String): MutableLiveData<DataWrapper<User>> {
         val mutableLiveData = MutableLiveData<DataWrapper<User>>()
-        val disposable = githubApiInterface
+        val disposable = userApiInterface
             .getUser(username)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
