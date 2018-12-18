@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="hourglass.json"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:lottie_loop="true" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:civ_border_color="#424242"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/error"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:drawableStart="@drawable/ic_location_on_black_24dp"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/blog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blog">
+
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_whatshot_black_24dp"
+            android:drawablePadding="8dp" />
+
+        <TextView
+            android:id="@+id/following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/followers"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_group_black_24dp"
+            android:drawablePadding="8dp" />
+
+        <TextView
+            android:id="@+id/public_repos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/following"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:text="Public gists" />
+
+        <TextView
+            android:id="@+id/public_gists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/public_repos"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="8dp"
+            android:text="Public repositories" />
+    </RelativeLayout>
+</RelativeLayout>
